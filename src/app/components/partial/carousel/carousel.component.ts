@@ -3,8 +3,8 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-carousel',
-  standalone: true,
   imports: [CarouselModule],
+  standalone: true,
   templateUrl: './carousel.component.html',
 })
 export class CarouselComponent {

@@ -5,6 +5,7 @@ import { BreadcrumbComponent } from '../../partial/breadcrumb/breadcrumb.compone
 
 @Component({
     selector: 'app-doctors',
+    standalone: true,
     imports: [BreadcrumbComponent],
     templateUrl: './doctors.component.html'
 })

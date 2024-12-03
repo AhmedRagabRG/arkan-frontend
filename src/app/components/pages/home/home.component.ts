@@ -12,6 +12,7 @@ import { IDoctor, IService, ISpecialization } from './interfaces/home.interface'
 
 @Component({
     selector: 'app-home',
+    standalone: true,
     imports: [
         CommonModule,
         CarouselModule,

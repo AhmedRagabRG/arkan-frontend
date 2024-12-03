@@ -5,6 +5,7 @@ import { filter } from 'rxjs';
 @Component({
     selector: 'app-breadcrumb',
     imports: [RouterModule],
+    standalone: true,
     templateUrl: './breadcrumb.component.html'
 })
 export class BreadcrumbComponent implements OnInit {
