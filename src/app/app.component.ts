@@ -6,10 +6,10 @@ import { FooterComponent } from "./components/partial/footer/footer.component";
 import { HomeService } from './services/home.service';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterModule, HeaderComponent, FooterComponent],
-  templateUrl: './app.component.html'
+    selector: 'app-root',
+    standalone: true,
+    imports: [CommonModule, RouterModule, HeaderComponent, FooterComponent],
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
   sections: any[] = [];

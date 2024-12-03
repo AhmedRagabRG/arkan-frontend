@@ -3,10 +3,9 @@ import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/ro
 import { filter } from 'rxjs';
 
 @Component({
-  selector: 'app-breadcrumb',
-  standalone: true,
-  imports: [RouterModule],
-  templateUrl: './breadcrumb.component.html',
+    selector: 'app-breadcrumb',
+    imports: [RouterModule],
+    templateUrl: './breadcrumb.component.html'
 })
 export class BreadcrumbComponent implements OnInit {
   breadcrumbs: Array<{ label: string, url: string }> = [];

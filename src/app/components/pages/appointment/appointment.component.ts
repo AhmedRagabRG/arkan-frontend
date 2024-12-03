@@ -5,7 +5,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatTimepickerModule } from '@angular/material/timepicker';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 
 export interface DialogData {
   animal: string;
@@ -13,11 +12,11 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'app-appointment',
-  standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule],
-  templateUrl: './appointment.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-appointment',
+    imports: [MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatTimepickerModule],
+    standalone: true,
+    templateUrl: './appointment.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppointmentComponent {
   dates: any = [];

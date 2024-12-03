@@ -10,18 +10,18 @@ import { ButtonModule } from 'primeng/button';
 
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MenubarModule,
-    BadgeModule,
-    AvatarModule,
-    InputTextModule,
-    RippleModule,
-    ButtonModule,
-  ],
-  templateUrl: './header.component.html',
+    selector: 'app-header',
+    standalone: true,
+    imports: [
+        CommonModule,
+        MenubarModule,
+        BadgeModule,
+        AvatarModule,
+        InputTextModule,
+        RippleModule,
+        ButtonModule,
+    ],
+    templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
   items: MenuItem[] = [];

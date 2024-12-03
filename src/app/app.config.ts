@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import Aura from '@primeng/themes/aura';
+
 registerLocaleData(ar);
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,7 +18,13 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     importProvidersFrom([BrowserAnimationsModule]),
-    provideHttpClient(withFetch()), provideAnimationsAsync(),
-    provideNativeDateAdapter()
+    provideHttpClient(withFetch()), 
+    provideNativeDateAdapter(),
+    provideAnimationsAsync(),
+    // providePrimeNG({
+    //   theme: {
+    //     preset: Aura
+    //   }
+    // }), provideAnimationsAsync()
   ],
 };

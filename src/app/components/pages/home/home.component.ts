@@ -11,19 +11,18 @@ import { HomeService } from '../../../services/home.service';
 import { IDoctor, IService, ISpecialization } from './interfaces/home.interface';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    CommonModule,
-    CarouselModule,
-    ButtonModule,
-    TagModule,
-    CarouselModule,
-    TextSplicerPipe,
-    SpeedDialModule,
-    CarouselModule,
-  ],
-  templateUrl: './home.component.html',
+    selector: 'app-home',
+    imports: [
+        CommonModule,
+        CarouselModule,
+        ButtonModule,
+        TagModule,
+        CarouselModule,
+        TextSplicerPipe,
+        SpeedDialModule,
+        CarouselModule,
+    ],
+    templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
   services: IService[] = [];

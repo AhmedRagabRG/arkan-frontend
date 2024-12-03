@@ -4,10 +4,9 @@ import { IDoctor, ISpecialization } from '../home/interfaces/home.interface';
 import { BreadcrumbComponent } from '../../partial/breadcrumb/breadcrumb.component';
 
 @Component({
-  selector: 'app-doctors',
-  standalone: true,
-  imports: [BreadcrumbComponent],
-  templateUrl: './doctors.component.html',
+    selector: 'app-doctors',
+    imports: [BreadcrumbComponent],
+    templateUrl: './doctors.component.html'
 })
 export class DoctorsComponent implements OnInit {
   doctors: IDoctor[] = [];
