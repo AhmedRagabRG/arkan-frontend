@@ -1,0 +1,40 @@
+<mat-dialog-content class="mat-typography" attach="HomeComponent">
+  <form class="p-4 md:p-5 font-cairo-bold" [formGroup]="form">
+    <div class="grid gap-4 mb-4 grid-cols-2">
+      <div class="col-span-2">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">الأسم</label>
+        <input type="text" formControlName="name" id="name"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+          placeholder="اكتب اسمك بالكامل">
+      </div>
+
+      <div class="col-span-2">
+        <label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 ">رقم الهاتف</label>
+        <input type="text" formControlName="phoneNumber" id="phoneNumber"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+          placeholder="رقم الهاتف">
+      </div>
+
+      <div class="col-span-2">
+        <label for="service" class="block mb-2 text-sm font-medium text-gray-900">الخدمة</label>
+        <select id="service" formControlName="service"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+          <option *ngFor="let item of data.availableServices" [value]="item">{{item}}</option>
+        </select>
+      </div>
+
+      <div class="col-span-2">
+        <label for="time" class="block mb-2 text-sm font-medium text-gray-900">الوقت</label>
+        <select id="time" formControlName="time"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+          <option *ngFor="let item of data.availableTimes" [value]="item">{{item}}</option>
+        </select>
+      </div>
+
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>الغاء</button>
+  <button (click)="submit()" mat-button [mat-dialog-close]="true" cdkFocusInitial>حجز</button>
+</mat-dialog-actions>

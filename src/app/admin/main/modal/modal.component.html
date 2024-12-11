@@ -1,0 +1,54 @@
+<mat-dialog-content class="mat-typography" attach="HomeComponent">
+  <form class="p-4 md:p-5 font-cairo-bold" [formGroup]="form">
+    <div class="grid gap-4 mb-4 grid-cols-2">
+      <div class="col-span-2">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">الأسم</label>
+        <input type="text" formControlName="name" id="name"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+          placeholder="اكتب اسم الدكتور" aria-label="Doctor Name">
+      </div>
+
+      <div class="col-span-2">
+        <label for="img" class="block mb-2 text-sm font-medium text-gray-900">الصورة</label>
+        <input type="text" formControlName="img" id="img"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+          placeholder="صورة الدكتور" aria-label="Doctor Img">
+      </div>
+
+      <div class="col-span-2">
+        <label for="service" class="block mb-2 text-sm font-medium text-gray-900">التخصص</label>
+        <select id="service" formControlName="specialization"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+          aria-label="Specialization">
+          <option *ngFor="let item of data.specializations" [value]="item.id">{{item.name}}</option>
+        </select>
+      </div>
+
+      <div class="col-span-2">
+        <label for="workDays" class="block mb-2 text-sm font-medium text-gray-900">أيام العمل</label>
+        <div formArrayName="workDays" class="grid gap-2">
+          <div *ngFor="let day of workDays; let i = index">
+            <label>
+              <input checked="checked" type="checkbox" [formControlName]="i" class="w-4 h-4 text-blue-600 bg-gray-100 rounded focus:ring-blue-500 focus:ring-2">
+              {{ day.name }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>الغاء</button>
+  <button mat-button (click)="onSubmit()" [disabled]="!form.valid">تأكيد</button>
+</mat-dialog-actions>
+
+<swal
+  #notify
+  title="Delete ?"
+  text="This cannot be undone"
+  icon="question"
+  [showCancelButton]="true"
+  [focusCancel]="true"
+  (confirm)="onSubmit()">
+</swal>

@@ -7,14 +7,7 @@ module.exports = {
     require('tailwindcss-rtl'),
   ],
   theme: {
-    container: {
-      padding: {
-        // 'sm': '2rem',
-        // 'lg': '2rem',
-        // 'xl': '2rem',
-        // '2xl': '2rem',
-      },
-    },
+    container: {},
     fontFamily: {
       'cairo-bold': ['Cairo-Bold'],
       'cairo-medium': ['Cairo-Medium'],
