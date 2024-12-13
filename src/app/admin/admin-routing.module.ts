@@ -1,16 +1,25 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './component/dashboard.component';
 import { DoctorsAdminComponent } from './doctors/doctors-admin.component';
+import { DashboardHomeComponent } from './home/components/dashboard-home.component';
+import { MenusComponent } from './menus/menus.component';
+import { SectionnEditComponent } from './menus/edit-component.ts/edit.component';
 
 
-const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'doctors', component: DoctorsAdminComponent },
+const adminRoutes: Routes = [
+  {
+    path: '', component: DashboardComponent, children: [
+      { path: 'home', component: DashboardHomeComponent },
+      { path: 'sections', component: MenusComponent },
+      { path: 'sections/:id', component: SectionnEditComponent },
+      { path: 'doctors', component: DoctorsAdminComponent },
+    ]
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(adminRoutes)],
   exports: [RouterModule]
 })
-export class DashboardRoutingModule {}
+export class AdminRoutingModule { }

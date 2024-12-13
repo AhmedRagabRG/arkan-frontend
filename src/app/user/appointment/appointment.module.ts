@@ -8,7 +8,6 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
-import { AppointmentService } from './appointment.service';
 
 
 @NgModule({
@@ -26,7 +25,6 @@ import { AppointmentService } from './appointment.service';
   ],
   providers: [
     provideHttpClient(withFetch()),
-    AppointmentService
   ],
 })
 export class AppointmentModule { }

@@ -29,7 +29,8 @@
         <div formArrayName="workDays" class="grid gap-2">
           <div *ngFor="let day of workDays; let i = index">
             <label>
-              <input checked="checked" type="checkbox" [formControlName]="i" class="w-4 h-4 text-blue-600 bg-gray-100 rounded focus:ring-blue-500 focus:ring-2">
+              <input type="checkbox" [formControlName]="i"
+                class="w-4 h-4 text-blue-600 bg-gray-100 rounded focus:ring-blue-500 focus:ring-2">
               {{ day.name }}
             </label>
           </div>
@@ -40,15 +41,9 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>الغاء</button>
-  <button mat-button (click)="onSubmit()" [disabled]="!form.valid">تأكيد</button>
+  <button mat-button (click)="data.id ? onEdit(data.id) : onSubmit()" [disabled]="!form.valid">تأكيد</button>
 </mat-dialog-actions>
 
-<swal
-  #notify
-  title="Delete ?"
-  text="This cannot be undone"
-  icon="question"
-  [showCancelButton]="true"
-  [focusCancel]="true"
-  (confirm)="onSubmit()">
+<swal #notify title="Delete ?" text="This cannot be undone" icon="question" [showCancelButton]="true"
+  [focusCancel]="true" (confirm)="onSubmit()">
 </swal>

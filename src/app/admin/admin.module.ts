@@ -1,36 +1,40 @@
 import { NgModule } from "@angular/core";
-import { DashboardRoutingModule } from "./admin-routing.module";
+import { AdminRoutingModule } from "./admin-routing.module";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
-import { DashboardComponent } from "./dashboard/dashboard.component";
-import { MainComponent } from "./main/main.component";
-import { LeftSidebarComponent } from "./left-sidebar/left-sidebar.component";
+import { DashboardComponent } from "./component/dashboard.component";
+import { LeftSidebarComponent } from "./layout/left-sidebar/left-sidebar.component";
 import { DoctorsAdminComponent } from "./doctors/doctors-admin.component";
-import { DoctorsAdminModalComponent } from "./main/modal/modal.component";
+import { DoctorsAdminModalComponent } from "./doctors/modal/modal.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from "@angular/material/dialog";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
 import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
-
-
+import { DashboardHomeModule } from "./home/dashboard-home.module";
+import { MenusComponent } from "./menus/menus.component";
+import { SectionnEditComponent } from "./menus/edit-component.ts/edit.component";
+import { EditorModule } from 'primeng/editor';
+import { SectionsModalComponent } from "./menus/modal/modal.component";
 
 @NgModule({
   declarations: [
-    MainComponent,
     LeftSidebarComponent,
     DashboardComponent,
     DoctorsAdminComponent,
     DoctorsAdminModalComponent,
+    MenusComponent,
+    SectionnEditComponent,
   ],
   imports: [
+    AdminRoutingModule,
     CommonModule,
     RouterModule,
     FormsModule,
-    DashboardRoutingModule,
-    MatDialogModule, 
+    MatDialogModule,
     MatButtonModule,
     ReactiveFormsModule,
+    DashboardHomeModule,
+    EditorModule,
     SweetAlert2Module.forChild({})
   ]
 })

@@ -6,13 +6,14 @@ import {
   on
 } from '@ngrx/store';
 import { HomeSateInterface } from '../types/homeState.interface';
-import { fetchDoctorsSuccess, fetchServicesSuccess, fetchSpecializationsSuccess } from '../actions/home.actions';
+import { fetchDoctorsSuccess, fetchSectionsSuccess, fetchServicesSuccess, fetchSpecializationsSuccess } from '../actions/home.actions';
 
-export interface State {}
+export interface State { }
 
 export const initialState: HomeSateInterface = {
   isLoading: false,
   specializations: [],
+  sections: [],
   service: [],
   doctors: [],
   error: null
@@ -40,6 +41,13 @@ export const homeReducer = createReducer(
     return {
       ...state,
       specializations: specializations,
+      isLoading: false
+    }
+  }),
+  on(fetchSectionsSuccess, (state, { sections }) => {
+    return {
+      ...state,
+      sections: sections,
       isLoading: false
     }
   }),

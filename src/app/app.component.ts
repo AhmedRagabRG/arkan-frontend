@@ -1,10 +1,10 @@
-import { Component, HostListener, OnInit, signal } from '@angular/core';
-import { HomeService } from './home/home.service';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from './reducers';
-import { map, Observable } from 'rxjs';
-import { stat } from 'fs';
-import { IDoctor } from './home/interfaces/home.interface';
+import { HomeService } from './user/home/home.service';
+import { fetchDoctorsSuccess, fetchSectionsSuccess, fetchServicesSuccess, fetchSpecializationsSuccess } from './user/home/actions/home.actions';
+import { IDoctor, ISection, IService, ISpecialization } from './user/home/interfaces/home.interface';
+import { tap } from 'rxjs';
 
 /**
  * The root component of the application.
@@ -22,21 +22,37 @@ import { IDoctor } from './home/interfaces/home.interface';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  isLoading$!: Observable<boolean>;
+  services: IService[] = [];
+  specializations: ISpecialization[] = [];
+  doctors: IDoctor[] = [];
+  sections: ISection[] = [];
+  
+  constructor(
+    private readonly homeService: HomeService,
+    private store: Store<AppState>,
+  ) {}
 
-  sections: any[] = [];
-  services: any[] = [];
-  doctors$!: Observable<IDoctor[]>
-
-  constructor(private store: Store<AppState>) { }
-  isLeftSidebarCollapsed = signal<boolean>(false);
-  screenWidth = signal<number>(1920);
-
-  ngOnInit(): void {
-    this.isLeftSidebarCollapsed.set(false);
+  ngOnInit() {
+    this.homeService.getHomeData().pipe(tap(data => {
+      const doctors = fetchDoctorsSuccess({doctors: data.doctors})
+      const services = fetchServicesSuccess({services: data.services})
+      const specializations = fetchSpecializationsSuccess({specializations: data.specializations})
+      const sections = fetchSectionsSuccess({sections: data.sections})
+      
+      this.services = data.services;
+      this.specializations = data.specializations;
+      this.doctors = data.doctors;
+      this.sections = data.sections;
+      
+      this.store.dispatch(doctors);
+      this.store.dispatch(services);
+      this.store.dispatch(specializations);
+      this.store.dispatch(sections);
+    })).subscribe({
+      error: (err) => {
+        console.error('Error occurred while fetching data:', err);
+      }
+    });
   }
 
-  changeIsLeftSidebarCollapsed(isLeftSidebarCollapsed: boolean): void {
-    this.isLeftSidebarCollapsed.set(false);
-  }
 }

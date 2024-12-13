@@ -1,4 +1,4 @@
-<section class="relative h-screen flex flex-col items-center justify-center text-center text-white ">
+<section class="relative h-screen flex flex-col items-center justify-center text-center text-white">
     <div class="video-docker absolute top-0 left-0 w-full h-full overflow-hidden">
         <video class="min-w-full min-h-full absolute object-cover"
             src="https://watanyeyehospitals.com/images/Videos/Website%20Desktop.mp4" type="video/mp4" autoplay muted
@@ -6,44 +6,42 @@
     </div>
 </section>
 
-<div class="md:flex ">
-    <div *ngFor="let service of services"
+<section class="md:flex">
+    <div *ngFor="let service of staticServices"
         class="flex-1 font-cairo-medium flex flex-col items-center justify-center p-6 bg-[#4B3955] border border-gray-200 shadow">
-        <svg class="w-7 h-7 text-gray-500 mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor" viewBox="0 0 20 20">
-            <path
-                d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-        </svg>
-
+        <img [src]="service.img" [alt]="service.title" class="w-16 h-16 mb-4" />
         <h5 class="mb-2 text-2xl font-semibold tracking-tight text-[#D4AF7F]">
-            {{ service.title | textSplicer: 20 }}
+            {{ service.title }}
         </h5>
-
-        <p class="mb-3 font-normal text-[#B6A0B6] overflow-hidden">{{ service.content | textSplicer: 15 }}</p>
+        <p class="mb-3 font-normal text-[#B6A0B6] overflow-hidden">
+            {{ service.content }}
+        </p>
     </div>
-</div>
+</section>
 
-<div class="container mx-auto">
+<section class="container mx-auto">
     <div class="bg-white mt-14">
         <div
-            class="font-cairo-medium gap-8 items-center px-4 mx-auto  lg:grid lg:grid-cols-2 xl:gap-16 sm:py-16 lg:px-6">
-            <div class=" sm:text-lg">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-[#4B3955]"> مرحباً في مركز اركان للعيون
+            class="font-cairo-medium gap-8 items-center px-4 mx-auto lg:grid lg:grid-cols-2 xl:gap-16 sm:py-16 lg:px-6">
+            <div class="sm:text-lg">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-[#4B3955]">
+                    مرحباً في مركز اركان للعيون
                 </h2>
-                <p class="mb-4 font-light lg:text-xl text-[#D4AF7F]">يمكننا تغيير حياة الآخرين للأفضل في أي وقت!</p>
+                <p class="mb-4 font-light lg:text-xl text-[#D4AF7F]">
+                    يمكننا تغيير حياة الآخرين للأفضل في أي وقت!
+                </p>
                 <div class="mb-6 border-t border-b border-gray-200">
                     <div class="flex pt-4">
                         <p class="mb-2 font-light text-gray-500">
-                            يضم مركز اركان لطب و جراحة العيون نخبة كبيرة من الاستشاريين المتخصصين والخبراء تحت
-                            اشراف المدير التنفيذي أستاذ دكتور فتحي اركان استشاري طب و جراحة العيون، عضو الجمعية
-                            الامريكية والاوروبية للمياه البيضاء و تصحيح الابصار، حاصل علي دبلوم طب و جراحة
-                            العيون من
-                            كلية الجراحين الملكية بلندن، حاصل على الزمالة من كلية الجراحين الملكية بأدنبرة، حاصل
-                            على
-                            الزمالة في المياه الزرقاء من جامعة كورنيل بنيويورك، عمل كمدير طبي و كبير استشاري طب
-                            و
-                            جراحة العيون بمستشفيات المغربي للعيون بجدة السعودية و القاهرة مصر، وحاليا المدير
-                            التنفيذي بمراكز اركان لطب و جراحة العيون
+                            يضم مركز اركان لطب و جراحة العيون نخبة كبيرة من الاستشاريين
+                            المتخصصين والخبراء تحت اشراف المدير التنفيذي أستاذ دكتور فتحي
+                            اركان استشاري طب و جراحة العيون، عضو الجمعية الامريكية والاوروبية
+                            للمياه البيضاء و تصحيح الابصار، حاصل علي دبلوم طب و جراحة العيون
+                            من كلية الجراحين الملكية بلندن، حاصل على الزمالة من كلية الجراحين
+                            الملكية بأدنبرة، حاصل على الزمالة في المياه الزرقاء من جامعة
+                            كورنيل بنيويورك، عمل كمدير طبي و كبير استشاري طب و جراحة العيون
+                            بمستشفيات المغربي للعيون بجدة السعودية و القاهرة مصر، وحاليا
+                            المدير التنفيذي بمراكز اركان لطب و جراحة العيون
                         </p>
                     </div>
                 </div>
@@ -58,27 +56,26 @@
     <div class="font-cairo-medium mt-14 px-4">
         <div class="flex items-center flex-col text-center mb-10">
             <h2 class="text-4xl font-bold text-[#4B3955]">خدماتنا</h2>
-            <p class="text-gray-500" style="font-size: 1.5rem;">نقدم لكم خدماتنا المتنوعة</p>
+            <p class="text-gray-500" style="font-size: 1.5rem">
+                نقدم لكم خدماتنا المتنوعة
+            </p>
             <div class="mt-2 w-[18rem] h-[3px] bg-[#4B3955]"></div>
         </div>
 
         <owl-carousel-o [options]="carouselOptions">
             <ng-template carouselSlide *ngFor="let item of services" class="">
                 <div class="min-h-sm bg-white border border-gray-200 rounded-lg shadow">
-                    <img class="h-80 max-h-80 rounded-lg" [src]="item.img" [alt]="item.title" />
+                    <img class="w-[400px] h-[421px] rounded-lg" [src]="item.img" [alt]="item.title" />
                     <div class="p-5">
                         <h5 class="mb-2 text-2xl tracking-tight text-[#4B3955] overflow-hidden">
-                            {{ item.title | textSplicer: 20 }}
+                            {{ item.title | textSplicer : 20 }}
                         </h5>
-                        <p 
-                        class="mb-3 font-normal text-gray-500 break-words " 
-                        *ngIf="item.content"
-                      >
-                        {{ item.content | textSplicer: 100 }}
-                      </p>
-                      
-                        <a
-                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#4B3955] rounded-lg hover:bg-[#664d73] focus:ring-4 focus:outline-none focus:ring-[#4B3955] ">
+                        <p class="mb-3 font-normal text-gray-500 break-words" *ngIf="item.content">
+                            {{ item.content | textSplicer : 100 }}
+                        </p>
+
+                        <a routerLink="/services/{{ item.id }}"
+                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#4B3955] rounded-lg hover:bg-[#664d73] focus:ring-4 focus:outline-none focus:ring-[#4B3955]">
                             قراءة المزيد
                             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -98,38 +95,44 @@
                 class="lg:py-14 lg:px-20 p-10 rounded-2xl bg-[#4B3955] flex items-center justify-between flex-col lg:flex-row">
                 <div class="block text-center mb-5 lg:text-right lg:mb-0">
                     <h2 class="text-3xl text-white font-semibold mb-5 lg:mb-2">
-                        مركز اركان اكثر من عشرين عاما من الخبرة
+                        مركز أركان، رعاية طبية متخصصة في طب العيون
                     </h2>
-                    <p class="text-xl text-indigo-100">
-                        اتصل بنا أو احجز معادك اليوم
-                    </p>
+                    <p class="text-xl text-indigo-100">اتصل بنا أو احجز معادك اليوم</p>
                 </div>
                 <a routerLink="/appointment"
-                    class="flex items-center gap-2 bg-white rounded-full shadow-sm text-lg text-[#4B3955] font-semibold py-4 px-8 transition-all duration-500">حجز
-                    موعد
+                    class="flex items-center gap-2 bg-white rounded-full shadow-sm text-lg text-[#4B3955] font-semibold py-4 px-8 transition-all duration-500">
+                    احجز الآن
                 </a>
             </div>
         </div>
     </div>
 
-    <div class="font-cairo-medium mt-14 px-4">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10">
         <div class="flex items-center flex-col text-center mb-10">
             <h2 class="text-4xl font-bold text-[#4B3955]">أطبائنا</h2>
-            <p class="text-gray-500" style="font-size: 1.5rem;">محترفين ومدربين علي أعلي مستوي</p>
+            <p class="text-gray-500" style="font-size: 1.5rem">
+                محترفين ومدربين علي أعلي مستوي
+            </p>
             <div class="mt-2 w-[24rem] h-[3px] bg-[#4B3955]"></div>
         </div>
-        <owl-carousel-o [options]="carouselOptions">
-            <ng-template carouselSlide *ngFor="let doctor of doctors">
-                <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
-                    <img class="p-4 w-full rounded-lg" [src]="doctor.img" [alt]="doctor.name">
-                    <div class="px-5 pb-5">
-                        <h3 class="text-xl font-bold tracking-tight text-gray-900 ">
-                            <p>{{doctor.name}}</p>
-                        </h3>
-                        <span class="text-gray-500">{{getSpecializationName(doctor.specializationId)}}</span>
-                    </div>
+        <div class="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div *ngFor="let doctor of doctors | slice:0:3"
+                class="bg-white rounded-lg border border-gray-200 shadow-sm">
+                <img class="p-4 w-[400px] h-[471px] object-cover rounded-lg" [src]="doctor.img" [alt]="doctor.name">
+                <div class="px-5 pb-5">
+                    <h3 class="text-xl font-bold tracking-tight text-gray-900">
+                        <p>{{doctor.name}}</p>
+                    </h3>
+                    <span class="text-gray-500">{{getSpecializationName(doctor.specializationId)}}</span>
                 </div>
-            </ng-template>
-        </owl-carousel-o>
+            </div>
+        </div>
+        
+        <button routerLink="/doctors"
+            class="flex items-center gap-2 bg-[#4B3955] hover:bg-[#664d73] rounded-lg shadow-sm text-lg text-white font-semibold py-4 px-8 transition-all duration-500 mt-10 mx-auto">
+            تعرف علي المزيد من أطبائنا
+            <i class="pi pi-arrow-left" style="font-size: 1rem"></i>
+
+        </button>
     </div>
-</div>
+</section>

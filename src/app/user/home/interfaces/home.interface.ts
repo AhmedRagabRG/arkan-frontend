@@ -18,3 +18,11 @@ export interface ISpecialization {
     id?: number;
     name: string;
 }
+
+export interface ISection {
+    id: string;
+    name: string;
+    content?: string;
+    img?: string;
+    sectionId?: number;
+}

@@ -8,14 +8,15 @@ import { Component, input, output } from '@angular/core';
 export class LeftSidebarComponent {
   isLeftSidebarCollapsed = input.required<boolean>();
   changeIsLeftSidebarCollapsed = output<boolean>();
+  
   items = [
     {
-      routeLink: 'dashboard',
+      routeLink: 'admin/home',
       icon: 'fal fa-home',
       label: 'Dashboard',
     },
     {
-      routeLink: 'products',
+      routeLink: 'admin/doctors',
       icon: 'fal fa-box-open',
       label: 'Doctors',
     },

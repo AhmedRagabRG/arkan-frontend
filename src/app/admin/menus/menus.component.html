@@ -1,0 +1,57 @@
+<button id="addDoctor"
+    class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5   "
+    type="button" (click)="openModal()">
+    إضافة سيكشن جديد
+</button>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+            <tr>
+
+                <th scope="col" class="px-6 py-3">
+                    الأسم
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    فرعي | اساسي
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    حذف
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    تعديل
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (section of sections; track $index) {
+            <tr class="bg-white border-b   hover:bg-gray-50 ">
+                <th scope="row" class="text-gray-900 whitespace-nowrap ">
+                    <div class="ps-3">
+                        <div class="text-base font-semibold">{{section.name}}</div>
+                    </div>
+                </th>
+                <td class="px-6 py-4">
+                    {{ section.sectionId ? 'فرعي' : 'اساسي' }}
+                </td>
+                <td class="px-6 py-4">
+
+                    <button class="font-medium text-red-600 hover:underline p-2" [swal]="deleteSwal">
+                        <swal #deleteSwal title=" هل انت متاكد من حذف سيكشن {{ section.name }}"
+                            text="في حالة الموافقة سيتم حذف السيكشن نهائيا" icon="question" [showCancelButton]="true"
+                            confirmButtonText="حذف" cancelButtonText="الغاء" [focusCancel]="true"
+                            (confirm)="removeSection(section.id)">
+                        </swal>
+                        حذف
+                    </button>
+
+                </td>
+                <td class="px-6 py-4 ">
+                    <button routerLink="/admin/sections/{{section.id}}" class="font-medium text-blue-600 hover:underline p-2">تعديل
+                    </button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

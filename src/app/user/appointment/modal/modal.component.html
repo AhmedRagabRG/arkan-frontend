@@ -1,3 +1,4 @@
+<h2 mat-dialog-title>حجز موعد بتاريخ | {{data.date}}</h2>
 <mat-dialog-content class="mat-typography" attach="HomeComponent">
   <form class="p-4 md:p-5 font-cairo-bold" [formGroup]="form">
     <div class="grid gap-4 mb-4 grid-cols-2">
@@ -34,7 +35,7 @@
     </div>
   </form>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
+<mat-dialog-actions>
   <button mat-button mat-dialog-close>الغاء</button>
-  <button (click)="submit()" mat-button [mat-dialog-close]="true" cdkFocusInitial>حجز</button>
+  <button (click)="submit()" mat-button [mat-dialog-close]="true" [disabled]="!form.valid">حجز</button>
 </mat-dialog-actions>

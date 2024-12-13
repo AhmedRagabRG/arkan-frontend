@@ -9,8 +9,8 @@ import { HomeService } from './home.service';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { homeReducer } from './reducers';
-import { TextSplicerPipe } from '../pipes/text-splicer.pipe';
 import { RouterModule } from '@angular/router';
+import { TextSplicerPipe } from '../../common/pipes/text-splicer.pipe';
 
 
 @NgModule({
@@ -18,13 +18,11 @@ import { RouterModule } from '@angular/router';
     HomeComponent
   ],
   imports: [
-    CommonModule,
     CarouselModule,
+    CommonModule,
     ButtonModule,
     TagModule,
-    CarouselModule,
     SpeedDialModule,
-    CarouselModule,
     StoreModule.forFeature('home', homeReducer),
     TextSplicerPipe,
     RouterModule,

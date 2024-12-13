@@ -5,9 +5,9 @@ import {
   Inject,
   Output,
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../../environments/environment.development';
 
 @Component({
   selector: 'app-dialog',
@@ -16,10 +16,10 @@ import { environment } from '../../../environments/environment.development';
 })
 export class ModalComponent {
   form = new FormGroup({
-    name: new FormControl(''),
-    phoneNumber: new FormControl(''),
-    service: new FormControl(''),
-    time: new FormControl(''),
+    name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    phoneNumber: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    service: new FormControl('', [Validators.required]),
+    time: new FormControl('', [Validators.required]),
   });
   selectedDate: string = "";
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private readonly http: HttpClient) {

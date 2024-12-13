@@ -1,17 +1,27 @@
-<p-menubar [model]="items" styleClass="font-cairo-medium m-auto">
+<div class="w-full h-8 bg-[#4B3955]">
+    <div class="container mx-auto flex justify-center w-full">
+    </div>
+</div>
+
+<p-menubar [model]="items" 
+    styleClass="font-cairo-medium bg-white shadow sticky top-0 z-50">
     <ng-template pTemplate="start">
-        <img class="m-auto" src="logo2.png" alt="" width="200px">
+        <a routerLink="/home">
+            <img class="m-auto" src="logo2.png" alt="" width="200px">
+        </a>
     </ng-template>
 
     <ng-template pTemplate="item" let-item let-root="root">
-        <a pRipple class="flex align-items-center p-menuitem-link">
+        <a [routerLink]="item.route" routerLinkActive="bg-[#4B3955] text-white rounded" pRipple
+            class="flex items-center p-menuitem-link">
             <span class="ml-2">{{ item.label }}</span>
             <i *ngIf="item.items" [ngClass]="['pi', root ? 'pi-angle-down ml-2' : 'pi-angle-right ml-auto']"></i>
         </a>
     </ng-template>
 
     <ng-template pTemplate="end">
-        <p-button label="حجز موعد" icon="" size="large"
-            class="bg-[#4B3955] p-2 rounded-lg text-white flex justify-end" />
+        <p-button routerLink="/appointment" label="حجز موعد" icon="" size="large"
+            class="bg-[#4B3955] px-4 py-2 rounded-lg text-white flex justify-end" />
     </ng-template>
 </p-menubar>
+

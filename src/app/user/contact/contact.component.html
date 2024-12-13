@@ -1,0 +1,65 @@
+<section class="bg-white font-cairo-medium">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 ">تواصل معنا</h2>
+            <p class="font-light text-gray-500 lg:mb-16 sm:text-xl ">
+                نحن هنا لمساعدتك في كل ما يخص صحة عينيك. إذا كان لديك أي استفسار أو ترغب في تحديد موعد، لا تتردد في الاتصال بنا عبر الهاتف أو البريد الإلكتروني. فريقنا الطبي مستعد دائمًا لتقديم الدعم والرعاية لك.
+            </p>
+        </div>
+        <div class="text-gray-600 body-font relative">
+            <div class="flex sm:flex-nowrap flex-wrap gap-10 md:gap-0">
+                <form [formGroup]="form"
+                    class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+                    <div class="relative mb-4">
+                        <label for="name" class="leading-7 text-sm text-gray-600">الأسم</label>
+                        <input type="text" id="name" formControlName="name"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-[#4B3955] focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    <div class="relative mb-4">
+                        <label for="phoneNumber" class="leading-7 text-sm text-gray-600">رقم الهاتف</label>
+                        <input type="phoneNumber" id="phoneNumber" formControlName="phoneNumber"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-[#4B3955] focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    <div class="relative mb-4">
+                        <label for="message" class="leading-7 text-sm text-gray-600">الرسالة</label>
+                        <textarea id="message" formControlName="message"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-[#4B3955] focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                    </div>
+                    <button (click)="submit()" [disabled]="!form.valid" type="submit"
+                        class="text-white bg-[#4B3955] border-0 py-2 px-6 focus:outline-none hover:bg-[#664d73] rounded text-lg">إرسال</button>
+                </form>
+
+                <div
+                    class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+                    <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map"
+                        marginheight="0" marginwidth="0" scrolling="no" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3436.9310015688643!2d31.3444067762144!3d30.522990095738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7e7159419eaed%3A0x779e94ecc1280e1b!2z2YXYsdmD2LIg2KPYsdmD2KfZhiDZhNmE2LnZitmI2YY!5e0!3m2!1sen!2seg!4v1733982378183!5m2!1sen!2seg">
+                    </iframe>
+
+                    <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+                        <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+                            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">البريد الالكتروني
+                            </h2>
+                            <a class="text-[#4B3955] leading-relaxed">info&#64;arkaneyecenter.com</a>
+                            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">البريد
+                                الالكتروني الخاص بالتعاقدات</h2>
+                            <a class="text-[#4B3955] leading-relaxed">claims&#64;arkaneyecenter.com</a>
+                            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">رقم الهاتف
+                            </h2>
+                            <p class="leading-relaxed">+02553645192</p>
+                            <p class="leading-relaxed">+20100523322</p>
+                            <p class="leading-relaxed">+201128755999</p>
+                        </div>
+                        <div class="lg:w-1/2 px-6">
+                            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">العنوان</h2>
+                            <p class="mt-1">
+                                كوبري البطل، شارع وجيه أباظة، منيا القمح، الشرقية   
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
