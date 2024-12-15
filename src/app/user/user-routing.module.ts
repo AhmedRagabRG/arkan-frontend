@@ -5,6 +5,8 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { UserComponent } from './component/user.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { ContactComponent } from './contact/contact.component';
+import { ServiceComponent } from './service/service.component';
+import { SectionComponent } from './section/section.component';
 
 
 const userRoutes: Routes = [
@@ -14,8 +16,8 @@ const userRoutes: Routes = [
       { path: 'appointment', component: AppointmentComponent },
       { path: 'doctors', component: DoctorsComponent },
       { path: 'contactus', component: ContactComponent },
-      { path: 'services/:id', component: ContactComponent },
-      { path: 'sections/:id', component: ContactComponent },
+      { path: 'services/:id', component: ServiceComponent },
+      { path: 'sections/:id', component: SectionComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', redirectTo: 'home', pathMatch: 'full' }
     ]
