@@ -1,14 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { IDoctor, IService, ISpecialization } from '../interfaces/home.interface';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { AppState } from '../../../reducers';
+import { map, Observable } from 'rxjs';
+import { IHomeState } from '../types/homeState.interface';
+import { HttpErrorResponse } from '@angular/common/http';
+import { fetchHomeDataStart } from '../actions/home.actions';
+import { getIsApiError, getIsApiLoading, homeEntites } from '../reducers';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
+  entites$: Observable<IHomeState[]>;
+  isLoading$: Observable<boolean | undefined>;
+  apiError$: Observable<HttpErrorResponse | undefined>;
+  
   staticServices: IService[] = [
     {
       id: 1,
@@ -29,16 +38,20 @@ export class HomeComponent implements OnInit {
       img: './images/svgs/eye-care.svg',
     },
   ];
-  
+
   services: IService[] = [];
   specializations: ISpecialization[] = [];
-  doctors: IDoctor[] = [];
 
   carouselOptions: OwlOptions
 
   constructor(
-    private store: Store<AppState>,
+    private store: Store<IHomeState>,
   ) {
+    this.store.dispatch(fetchHomeDataStart());
+    this.entites$ = this.store.pipe(select(homeEntites))
+    this.isLoading$ = this.store.pipe(select(getIsApiLoading))
+    this.apiError$ = this.store.pipe(select(getIsApiError))
+
     this.carouselOptions = {
       loop: true,
       mouseDrag: true,
@@ -68,18 +81,11 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.subscribe((state: any) => {
-      this.doctors = state['home'].doctors;
-      this.services = state['home'].services;
-      this.specializations = state['home'].specializations;
-    });
+
+    // this.isLoading$ = this.store.pipe(map((state: any) => !!state['home']))
+    // console.log(this.isLoading$)
   }
 
-  /**
-   * Gets the name of the specialization with the given id.
-   * @param id the id of the specialization
-   * @returns the name of the specialization, or an empty string if no specialization with the given id is found
-   */
   getSpecializationName(id: number) {
     return this.specializations.find((specialization) => specialization.id === id)?.name ?? '';
   }

@@ -9,6 +9,7 @@ import { AppRoutingModule } from "./app.routes";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { UserModule } from "./user/user.module";
 import { AdminModule } from "./admin/admin.module";
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AdminModule } from "./admin/admin.module";
     StoreModule.forRoot(reducers, {
       metaReducers
     }),
+    EffectsModule.forRoot(),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     AppRoutingModule,
     UserModule,

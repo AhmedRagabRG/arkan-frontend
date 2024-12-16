@@ -34,6 +34,7 @@ export class HeaderComponent implements OnInit {
           this.items.push({
             id: section.id,
             label: section.name,
+            route: `/sections/${section.id}`,
           });
         } else {
           const parentItem = this.items.find(item => item.id === section.sectionId);

@@ -8,9 +8,11 @@ import { HomeComponent } from './components/home.component';
 import { HomeService } from './home.service';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { homeReducer } from './reducers';
 import { RouterModule } from '@angular/router';
 import { TextSplicerPipe } from '../../common/pipes/text-splicer.pipe';
+import { reducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { HomeEffects } from './effects/home.effects';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { TextSplicerPipe } from '../../common/pipes/text-splicer.pipe';
     ButtonModule,
     TagModule,
     SpeedDialModule,
-    StoreModule.forFeature('home', homeReducer),
+    StoreModule.forFeature('home', reducers),
+    EffectsModule.forFeature([HomeEffects]),
     TextSplicerPipe,
     RouterModule,
   ],

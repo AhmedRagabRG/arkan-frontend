@@ -1,7 +1,7 @@
-<section class="relative h-screen flex flex-col items-center justify-center text-center text-white">
+<!-- <section class="relative h-screen flex flex-col items-center justify-center text-center text-white">
     <div class="video-docker absolute top-0 left-0 w-full h-full overflow-hidden">
         <video class="min-w-full min-h-full absolute object-cover"
-            src="https://watanyeyehospitals.com/images/Videos/Website%20Desktop.mp4" type="video/mp4" autoplay muted
+            src="./images/home.mp4" type="video/mp4" autoplay muted
             loop></video>
     </div>
 </section>
@@ -47,7 +47,7 @@
             </div>
 
             <img class="mb-4 w-full lg:mb-0 rounded-lg"
-                src="https://sayyadeyecenter.com/wp-content/uploads/2018/11/1_multipart_xF8FF_2_sssssssss-700x500.jpg"
+                src="./images/home_section.jpg"
                 alt="feature image" />
         </div>
     </div>
@@ -115,7 +115,7 @@
             <div class="mt-2 w-[24rem] h-[3px] bg-[#4B3955]"></div>
         </div>
         <div class="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <div *ngFor="let doctor of doctors | slice:0:3"
+            <div *ngFor="let doctor of entites$ | slice:0:3"
                 class="bg-white rounded-lg border border-gray-200 shadow-sm">
                 <img class="p-4 w-[400px] h-[471px] object-cover rounded-lg" [src]="doctor.img" [alt]="doctor.name">
                 <div class="px-5 pb-5">
@@ -134,4 +134,4 @@
 
         </button>
     </div>
-</section>
+</section> -->

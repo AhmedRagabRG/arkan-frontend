@@ -1,57 +1,35 @@
-import { isDevMode } from '@angular/core';
-import {
-  ActionReducerMap,
-  createReducer,
-  MetaReducer,
-  on
-} from '@ngrx/store';
-import { HomeSateInterface } from '../types/homeState.interface';
-import { fetchDoctorsSuccess, fetchSectionsSuccess, fetchServicesSuccess, fetchSpecializationsSuccess } from '../actions/home.actions';
+import * as fromHome from './home.reducer'
+import * as fromApi from './api.reducer'
+import { Action, combineReducers, createFeatureSelector, createSelector } from '@ngrx/store'
+import { adapter } from './home.reducer';
 
-export interface State { }
+export interface HomeState {
+  home: fromHome.State,
+  api: fromApi.State
+}
 
-export const initialState: HomeSateInterface = {
-  isLoading: false,
-  specializations: [],
-  sections: [],
-  service: [],
-  doctors: [],
-  error: null
-};
+export function reducers(state: HomeState, action: Action): any {
+  return combineReducers({
+    home: fromHome.reducer,
+    api: fromApi.reducer,
+  })(state, action)
+}
 
-export const reducers: ActionReducerMap<State> = {};
+const featureSelector = createFeatureSelector<HomeState>("home");
 
-export const homeReducer = createReducer(
-  initialState,
-  on(fetchDoctorsSuccess, (state, { doctors }) => {
-    return {
-      ...state,
-      doctors: doctors,
-      isLoading: false
-    }
-  }),
-  on(fetchServicesSuccess, (state, { services }) => {
-    return {
-      ...state,
-      services: services,
-      isLoading: false
-    }
-  }),
-  on(fetchSpecializationsSuccess, (state, { specializations }) => {
-    return {
-      ...state,
-      specializations: specializations,
-      isLoading: false
-    }
-  }),
-  on(fetchSectionsSuccess, (state, { sections }) => {
-    return {
-      ...state,
-      sections: sections,
-      isLoading: false
-    }
-  }),
+const homeSelector = createSelector(featureSelector, x=>x.home);
+const apiSelector = createSelector(featureSelector, x=>x.api);
 
-);
+const {selectAll} = adapter.getSelectors(homeSelector);
 
-export const metaReducers: MetaReducer<State>[] = isDevMode() ? [] : [];
+export const homeEntites = selectAll;
+
+export const getIsApiLoading = createSelector(
+  apiSelector,
+  fromApi.isLoading
+)
+
+export const getIsApiError = createSelector(
+  apiSelector,
+  fromApi.error
+)
